@@ -1,0 +1,18 @@
+
+<div (click)="onCurrentLevelElementClick()" class="sb-pp-accordion-menu-level">
+  <ng-container *ngTemplateOutlet="currentLevelTemplate; context:currentContex">
+  </ng-container>
+</div>
+<div>
+  <ng-container *ngIf="childrenExpanded">
+    <ng-container *ngFor="let item of item.children; let id = index">
+      <sb-accordion-level
+        [item]="item"
+        [service]="service"
+        [level]="level+1"
+        [onLevelId]="id"
+        [parentId]="onLevelId">
+      </sb-accordion-level>
+    </ng-container>
+  </ng-container>
+</div>

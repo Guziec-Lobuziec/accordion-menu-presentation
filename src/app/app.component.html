@@ -1,8 +1,11 @@
-<sb-accordion-menu>
-  <ng-template sbTemplate="lol">
-    <p>test</p>
+<sb-accordion-menu [value]="testData" class="sb-accordion-menu-level sb-accordion-menu-component">
+  <ng-template sbTemplate level=1 let-testItem>
+    <span class="element">level1: {{testItem}}</span>
   </ng-template>
-  <ng-template sbTemplate="lol">
-    <p>test2</p>
+  <ng-template sbTemplate level=2 [onlyOneExpanded]="false" let-testItem>
+    <span class="element">level2: {{testItem}}</span>
+  </ng-template>
+  <ng-template sbTemplate level=3 [onlyOneExpanded]="false" let-testItem>
+    <span class="element">level3: {{testItem}}</span>
   </ng-template>
 </sb-accordion-menu>

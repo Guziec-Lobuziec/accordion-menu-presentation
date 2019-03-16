@@ -1,3 +1,7 @@
-<div class="accordion-menu-component">
-  <ng-content></ng-content>
+<div class="sb-p-accordion-menu-component">
+  <ng-container *ngFor="let item of items; let id = index">
+    <sb-accordion-level
+      [item]="item" [service]="service" [onLevelId]="id" class="sb-p-accordion-menu-level">
+    </sb-accordion-level>
+  </ng-container>
 </div>
