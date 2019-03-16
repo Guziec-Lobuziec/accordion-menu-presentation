@@ -1,11 +1,23 @@
-<sb-accordion-menu [value]="data" class="sb-accordion-menu-level sb-accordion-menu-component">
-  <ng-template sbTemplate level=1 let-item>
-    <span class="element">{{item.categoryName}}</span>
-  </ng-template>
-  <ng-template sbTemplate level=2 [onlyOneExpanded]="false" let-item>
-    <span class="element">{{item.categoryName}}</span>
-  </ng-template>
-  <ng-template sbTemplate level=3 [onlyOneExpanded]="false" let-item>
-    <span class="element">{{item.categoryName}}</span>
-  </ng-template>
-</sb-accordion-menu>
+<div class="main-view">
+  <sb-accordion-menu [value]="data" class="sb-accordion-menu-component">
+    <ng-template sbTemplate level=1 let-item>
+      <div class="container level-1">
+        <div class="row">
+          <span class="col-8">{{item.categoryName}}</span>
+          <span class="col-4">{{item.eventsCount}}</span>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template sbTemplate level=2 [onlyOneExpanded]="false" let-item>
+      <div class="container level-2">
+        <div class="row">
+          <span class="col-8">{{item.categoryName}}</span>
+          <span class="col-4">{{item.eventsCount}}</span>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template sbTemplate level=3 [onlyOneExpanded]="false" let-item>
+      <div class="container level-3">{{item.categoryName}}</div>
+    </ng-template>
+  </sb-accordion-menu>
+</div>
