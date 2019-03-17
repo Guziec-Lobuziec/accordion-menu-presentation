@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.service.getCategoryData().subscribe(dataFeed => {
-      console.log(dataFeed)
       this.data = dataFeed
     })
   }

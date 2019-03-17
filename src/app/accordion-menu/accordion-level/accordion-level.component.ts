@@ -33,7 +33,9 @@ export class AccordionLevelComponent implements OnInit {
   }
 
   toggleChildrenExpanded() {
+    
     this.childrenExpanded = !this.childrenExpanded
+    this.updateContext()
 
     if(
       this.childrenExpanded &&
@@ -45,11 +47,15 @@ export class AccordionLevelComponent implements OnInit {
     }
   }
 
+  updateContext() {
+    this.currentContex = {$implicit: this.item.data, expanded: this.childrenExpanded}
+  }
+
   ngOnInit() {
     this.service.getAccordionItemsDirective(this.level).subscribe(directive => {
       this.directive = directive
       this.currentLevelTemplate = directive.templateRef
-      this.currentContex = {$implicit: this.item.data}
+      this.updateContext()
     })
 
     this.service.listenIfChildrenExpanded(this.level, this.parentId).subscribe(value => {

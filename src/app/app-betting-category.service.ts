@@ -42,7 +42,9 @@ export class AppBettingCategoryService {
     return this.http.get<BettingCategorySourceResponse>(dataSourceURL).pipe(
       map(json => json.data),
       map(data => { return {
-        st: data.filter(cat => cat.level === 1).map(structureData),
+        st: data.filter(cat => cat.level === 1)
+                .sort((a,b) => a.sortOrder - b.sortOrder)
+                .map(structureData),
         nd: data.filter(cat => !(cat.level === 1))
       }}),
       map(semiStruc => semiStruc.st.reduce<[AccordionDataView[],BettingCategory[]]>(

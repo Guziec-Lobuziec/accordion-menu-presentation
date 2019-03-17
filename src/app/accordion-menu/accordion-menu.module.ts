@@ -11,7 +11,7 @@ import { AccordionItemDirective } from './accordion-item.directive';
     AccordionItemDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     AccordionMenuComponent,
